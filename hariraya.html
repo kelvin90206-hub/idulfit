@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ucapan Idul Fitri</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      color: #2c3e50;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3.5em;
+      margin: 0.2em 0;
+      color: #27ae60;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    p {
+      font-size: 1.8em;
+      margin: 0.2em 0 1em;
+      color: #34495e;
+    }
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      opacity: 0.9;
+      animation: fall 4s linear infinite;
+      border-radius: 3px;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="confettiContainer"></div>
+
+<div>
+  <h1>Selamat Hari Raya Idul Fitri</h1>
+  <p>Mohon maaf lahir dan batin.<br>Semoga berkah dan kebahagiaan menyertai kita semua.</p>
+</div>
+
+<script>
+  const container = document.getElementById('confettiContainer');
+  const colors = ['#27ae60', '#2ecc71', '#16a085', '#1abc9c', '#145a32', '#117a65'];
+
+  for(let i = 0; i < 120; i++){
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDelay = (Math.random() * 4) + 's';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 10 + 5;
+    confetti.style.width = size + 'px';
+    confetti.style.height = size + 'px';
+    container.appendChild(confetti);
+  }
+</script>
+
+</body>
+</html>
